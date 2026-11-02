@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Curse of Knowledge</title>
+<meta name="description" content="An interactive presentation adapted from a short video by @signaluss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body class="intro waiting">
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="person" viewBox="0 0 60 80">
+    <circle cx="30" cy="20" r="13"/>
+    <path d="M4 80 C4 52 16 40 30 40 C44 40 56 52 56 80 Z"/>
+  </symbol>
+</svg>
+
+<main class="stage" id="stage">
+
+  <!-- 1 · PROLOGUE -->
+  <section class="slide" data-scene="hook" data-chapter="Prologue" aria-label="The question">
+    <div class="hook">
+      <h1 class="hook-q f" data-f="0">
+        <span class="w r">Have</span> <span class="w">you</span><br>
+        <span class="w">ever</span> <span class="w sm">talked</span><br>
+        <span class="w sm">to</span> <span class="w y">someone</span><br>
+        <span class="w sm">so</span> <span class="w r">unbelievably</span><br>
+        <span class="w y xl">stupid</span>
+      </h1>
+      <p class="hook-a f" data-f="1">
+        <span class="w">that</span> <span class="w">it</span> <span class="w r">irritated</span> <span class="w y">you?</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 2 · THE GLITCH -->
+  <section class="slide" data-scene="glitch" data-chapter="I · The Glitch" aria-label="Not about them">
+    <div class="split">
+      <div class="copy">
+        <h2 class="say f" data-f="0">That irritation is <em>not</em> about <span class="strike">them</span> at all.</h2>
+        <h2 class="say big f" data-f="1">It's a <span class="glitch" data-text="glitch">glitch</span> in your&nbsp;own&nbsp;brain.</h2>
+      </div>
+      <div class="brain-wrap f" data-f="1"><svg class="brain" id="brain" viewBox="0 0 400 300" aria-hidden="true"></svg></div>
+    </div>
+  </section>
+
+  <!-- 3 · THE NAME -->
+  <section class="slide" data-scene="curse" data-chapter="I · The Glitch" aria-label="The curse of knowledge">
+    <div class="center">
+      <p class="say sm f" data-f="0">Psychologists call it</p>
+      <h2 class="title-card f" data-f="0">
+        <span class="tc-the">the</span>
+        <span class="tc-main" data-letters>Curse</span>
+        <span class="tc-of">of knowledge</span>
+        <span class="tc-aka">AKA <span lang="ar" dir="rtl">جحيم الوعي</span> 🙏🥀</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- 4 · HOW IT WORKS -->
+  <section class="slide" data-scene="mechanism" data-chapter="II · How It Works" aria-label="Once you learn something">
+    <div class="stack">
+      <h2 class="say f" data-f="0">Once you learn something, your brain makes it <em>extremely difficult</em> to remember what it felt like <em class="ice">to not know it.</em></h2>
+      <svg class="oneway f" data-f="1" viewBox="0 0 800 240" aria-hidden="true">
+        <defs>
+          <linearGradient id="fadeBack" x1="1" x2="0" y1="0" y2="0">
+            <stop offset="0" stop-color="#8fd8ff" stop-opacity=".9"/>
+            <stop offset=".55" stop-color="#8fd8ff" stop-opacity=".25"/>
+            <stop offset="1" stop-color="#8fd8ff" stop-opacity="0"/>
+          </linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ffc83d"/></marker>
+        </defs>
+        <path class="ow-back" d="M640,92 C540,-4 260,-4 160,92" pathLength="1" stroke="url(#fadeBack)"/>
+        <text class="ow-backlabel" x="400" y="34" text-anchor="middle">what it felt like to not know</text>
+        <path class="ow-fwd" d="M222,150 L572,150" pathLength="1" marker-end="url(#arrow)"/>
+        <text class="ow-fwdlabel" x="397" y="138" text-anchor="middle">learn</text>
+        <g class="ow-node ow-a"><circle cx="150" cy="150" r="56"/><text x="150" y="166" text-anchor="middle">?</text></g>
+        <g class="ow-node ow-b"><circle cx="650" cy="150" r="56"/><text x="650" y="166" text-anchor="middle">!</text></g>
+        <text class="ow-cap" x="150" y="232" text-anchor="middle">not knowing</text>
+        <text class="ow-cap" x="650" y="232" text-anchor="middle">knowing</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 5 · CLUELESS -->
+  <section class="slide" data-scene="clueless" data-chapter="II · How It Works" aria-label="There was a time">
+    <canvas class="field" data-field="chaos" aria-hidden="true"></canvas>
+    <div class="stack left narrow">
+      <p class="say sm f" data-f="0">Think about something you understand <em>perfectly</em> now.</p>
+      <h2 class="say f" data-f="1">There was a time when you were <em class="r">completely clueless</em> about it.</h2>
+      <div class="decodes">
+        <p class="decode f" data-f="2" data-decode>You didn't understand the words.</p>
+        <p class="decode f" data-f="3" data-decode>You didn't see the pattern.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · IT CLICKED -->
+  <section class="slide" data-scene="click" data-chapter="II · How It Works" aria-label="It clicked">
+    <canvas class="field" data-field="click" aria-hidden="true"></canvas>
+    <div class="stack left narrow">
+      <p class="say sm f" data-f="0">But after enough exposure,</p>
+      <h2 class="say f" data-f="1">something changed.</h2>
+      <h2 class="display click-word f" data-f="2">It clicked,</h2>
+      <p class="say f" data-f="3">and now it feels <em>obvious.</em></p>
+    </div>
+  </section>
+
+  <!-- 7 · THE GAP -->
+  <section class="slide" data-scene="gap" data-chapter="III · The Gap" aria-label="Their confusion">
+    <div class="gap">
+      <h2 class="say md f" data-f="0">So when someone else doesn't understand it, your brain <em>doesn't naturally experience</em> their confusion.</h2>
+      <div class="minds f" data-f="1">
+        <figure class="mind you">
+          <canvas class="field" data-field="solved" aria-hidden="true"></canvas>
+          <figcaption>You<small>understand it</small></figcaption>
+        </figure>
+        <div class="gulf" aria-hidden="true"><span></span></div>
+        <figure class="mind them">
+          <canvas class="field" data-field="unsolved" aria-hidden="true"></canvas>
+          <figcaption>Them<small>don't understand it</small></figcaption>
+        </figure>
+      </div>
+      <div class="gap-foot">
+        <p class="say sm f" data-f="2">Instead, it looks at the answer sitting right in front of them and thinks,</p>
+        <p class="quote f" data-f="3">“How are you not seeing this?”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · IRRITATION -->
+  <section class="slide" data-scene="irritation" data-chapter="III · The Gap" aria-label="Where irritation begins">
+    <div class="center">
+      <h2 class="display heat f" data-f="0">And that's where the <span class="r hot">irritation</span> begins.</h2>
+      <div class="heatline f" data-f="0" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 9 · PROJECTION -->
+  <section class="slide" data-scene="projection" data-chapter="IV · Projection" aria-label="Projected backward">
+    <div class="proj">
+      <h2 class="say md f" data-f="0">Because without realising it, you've taken your <em>current level of knowledge</em> and projected it <em class="r">backward</em> onto everyone else.</h2>
+      <div class="lineup f" data-f="0" aria-hidden="true">
+        <div class="beam"></div>
+        <p class="beam-label f" data-f="1">← projected backward</p>
+        <figure class="p past"><span class="qm">?</span><svg><use href="#person"/></svg><figcaption>You, before</figcaption></figure>
+        <div class="others">
+          <figure class="p other"><span class="qm">?</span><svg><use href="#person"/></svg></figure>
+          <figure class="p other"><span class="qm">?</span><svg><use href="#person"/></svg></figure>
+          <figure class="p other"><span class="qm">?</span><svg><use href="#person"/></svg></figure>
+          <p class="others-cap">Everyone else</p>
+        </div>
+        <figure class="p now"><span class="qm">!</span><svg><use href="#person"/></svg><figcaption>You, now</figcaption></figure>
+      </div>
+      <p class="say f" data-f="2">You forget that <em class="ice">you once didn't know either.</em></p>
+    </div>
+  </section>
+
+  <!-- 10 · THE PARADOX -->
+  <section class="slide" data-scene="paradox" data-chapter="IV · Projection" aria-label="The smarter you become">
+    <div class="split">
+      <div class="copy">
+        <h2 class="say f" data-f="0">The smarter you become at something,</h2>
+        <h2 class="say f" data-f="1">the harder it <em>can be</em> to understand what it's like for someone who's <em class="ice">still learning it.</em></h2>
+      </div>
+      <figure class="chart f" data-f="1">
+        <svg viewBox="0 0 520 360" aria-hidden="true">
+          <path class="axis" d="M50,20 L50,300 L500,300"/>
+          <text class="ax" x="500" y="330" text-anchor="end">how well you know something →</text>
+          <path class="c-know" d="M60,280 C170,262 300,150 490,48" pathLength="1"/>
+          <path class="c-learn" d="M60,52 C200,70 320,190 490,268" pathLength="1"/>
+          <text class="lbl-know" x="486" y="30" text-anchor="end">what you know</text>
+          <text class="lbl-learn" x="66" y="36">seeing it like a learner</text>
+        </svg>
+        <figcaption>Concept sketch of the sentence. Not measured data.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 11 · EPILOGUE -->
+  <section class="slide" data-scene="ending" data-chapter="Epilogue" aria-label="Or don't">
+    <div class="center">
+      <h2 class="say big end-line f" data-f="0">So think about that before you let someone's stupidity anger&nbsp;you.</h2>
+      <p class="display ordont f" data-f="1">Or don't.</p>
+      <div class="endcard f" data-f="2">
+        <p class="ec-title">The Curse of Knowledge</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="curtain" aria-hidden="true"></div>
+<div class="letterbox top" aria-hidden="true"></div>
+<div class="letterbox bottom" aria-hidden="true"></div>
+
+<div class="chapter-card" id="chapterCard" aria-hidden="true"><span class="cc-num"></span><span class="cc-title"></span></div>
+
+<header class="hud-top">
+  <span class="brand">The Curse of Knowledge</span>
+  <span class="hud-chapter" id="hudChapter"></span>
+</header>
+
+<nav class="hud" aria-label="Presentation controls">
+  <span class="counter" id="counter">01 / 11</span>
+  <div class="buttons">
+    <button type="button" data-action="restart" aria-label="Restart" title="Restart (Home)"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5"/></svg></button>
+    <button type="button" data-action="prev" aria-label="Previous" title="Previous (←)"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" data-action="next" aria-label="Next" title="Next (→ / Space)"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    <button type="button" data-action="notes" aria-label="Notes and sources" title="Notes (N)"><svg viewBox="0 0 24 24"><path d="M12 8h.01M11 12h1v5h1"/><circle cx="12" cy="12" r="9"/></svg></button>
+    <button type="button" data-action="fullscreen" aria-label="Fullscreen" title="Fullscreen (F)"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+</nav>
+<div class="progress" id="progress" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+<p class="hint" id="hint">→ or Space to advance · F fullscreen · N notes</p>
+
+<aside class="notes" id="notes" aria-label="Notes and sources" aria-hidden="true">
+  <button class="notes-close" type="button" data-action="notes" aria-label="Close notes">×</button>
+  <h3>Source</h3>
+  <p>Video by <a href="https://www.tiktok.com/@signaluss/video/7694031048019168543" target="_blank" rel="noopener">@signaluss on TikTok</a>, 67 seconds, posted 7 Oct 2026. Every line on the slides is the video's own wording, in the video's order.</p>
+
+  <h3>Accuracy notes</h3>
+  <ol>
+    <li><b>"Psychologists call it the curse of knowledge."</b> The term is usually credited to economists Colin Camerer, George Loewenstein and Martin Weber (1989). Psychology research now uses it widely. The slide keeps the video's wording.</li>
+    <li><b>"A glitch in your own brain"</b> is the video's metaphor. The curse of knowledge is a cognitive bias, not a malfunction.</li>
+    <li>The post caption, "you aren't insane for being smart", is not said in the video, so it is not on the slides.</li>
+    <li>The video has no statistics. The chart on slide 10 is a concept sketch, not data.</li>
+  </ol>
+
+  <h3>Full transcript</h3>
+  <ol class="transcript">
+    <li><span>0:00</span> <i>(on screen)</i> Have you ever talked to someone so unbelievably stupid that it irritated you? <b>1</b></li>
+    <li><span>0:05</span> That irritation is not about them at all. It's a glitch in your own brain. <b>2</b></li>
+    <li><span>0:10</span> Psychologists call it the curse of knowledge. <b>3</b></li>
+    <li><span>0:13</span> Once you learn something, your brain makes it extremely difficult to remember what it felt like to not know it. <b>4</b></li>
+    <li><span>0:19</span> Think about something you understand perfectly now. There was a time when you were completely clueless about it. You didn't understand the words. You didn't see the pattern. <b>5</b></li>
+    <li><span>0:28</span> But after enough exposure, something changed. It clicked, and now it feels obvious. <b>6</b></li>
+    <li><span>0:34</span> So when someone else doesn't understand it, your brain doesn't naturally experience their confusion. Instead, it looks at the answer sitting right in front of them and thinks, how are you not seeing this? <b>7</b></li>
+    <li><span>0:45</span> And that's where the irritation begins. <b>8</b></li>
+    <li><span>0:48</span> Because without realising it, you've taken your current level of knowledge and projected it backward onto everyone else. You forget that you once didn't know either. <b>9</b></li>
+    <li><span>0:57</span> The smarter you become at something, the harder it can be to understand what it's like for someone who's still learning it. <b>10</b></li>
+    <li><span>1:03</span> So think about that before you let someone's stupidity anger you. Or don't. <b>11</b></li>
+  </ol>
+
+  <h3>Controls</h3>
+  <p>→ / Space / click: next · ← : back · Home: restart · End: last slide · F: fullscreen · N: notes · M: reduced motion on/off · swipe on touch screens.</p>
+</aside>
+
+<script src="app.js?v=3"></script>
+</body>
+</html>
